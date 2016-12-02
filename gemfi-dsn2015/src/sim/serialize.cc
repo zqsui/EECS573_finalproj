@@ -501,19 +501,19 @@ Serializable::unserialize(Checkpoint *cp, const string &section)
     void
 Serializable::serializeAll(const string &cpt_dir)
 {
-    //     string dir = Checkpoint::setDir(cpt_dir);
-    //     if (mkdir(dir.c_str(), 0775) == -1 && errno != EEXIST)
-    //             fatal("couldn't mkdir %s\n", dir);
-    // 
-    //     string cpt_file = dir + Checkpoint::baseFilename;
-    //     ofstream outstream(cpt_file.c_str());
-    //     time_t t = time(NULL);
-    //     if (!outstream.is_open())
-    //         fatal("Unable to open file %s for writing\n", cpt_file.c_str());
-    //     outstream << "## checkpoint generated: " << ctime(&t);
-    // 
-    //     globals.serialize(outstream);
-    //     SimObject::serializeAll(outstream);
+         string dir = Checkpoint::setDir(cpt_dir);
+         if (mkdir(dir.c_str(), 0775) == -1 && errno != EEXIST)
+                 fatal("couldn't mkdir %s\n", dir);
+     
+         string cpt_file = dir + Checkpoint::baseFilename;
+         ofstream outstream(cpt_file.c_str());
+         time_t t = time(NULL);
+         if (!outstream.is_open())
+             fatal("Unable to open file %s for writing\n", cpt_file.c_str());
+         outstream << "## checkpoint generated: " << ctime(&t);
+     
+         globals.serialize(outstream);
+         SimObject::serializeAll(outstream);
 
     //ALTERCODE
     int succeed = dmtcp_checkpoint(); 
