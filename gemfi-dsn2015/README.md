@@ -88,10 +88,60 @@ In the file ./configs/common/SysPaths.py, chage line 53 to
 path = [ '/dist/m5/system', 'your_path_to_gemfi/dist' ]
 ```
 
-Mount your test bench into the image
+Compile Program in ALPHA architecture and Add Test Bench
 -----------------------
+1. Download ALPHA compiler somewhere in your system 
 ```
-sudo mount -o,loop,offset=32256 ./dist/disk /linux-parsec-2-1-m5-with-test-inputs.img /mnt
-sudo cp your_test_program /mnt 
+wget http://www.m5sim.org/dist/current/alpha_crosstool.tar.bz2
 ```
 
+2. Uncompress it and Setup .bashrc file to include commands to add ALPHA building tools into the system PATH
+Put the following into the end of your bashrc file
+```
+eecs573(){
+    export PATH=/your_path_to_where_the_folder_is/opt/crosstool/gcc-3.4.3-glibc-2.3.5/alpha-unknown-linux-gnu/bin:$PATH
+}
+```
+
+3. Compile hello world program
+```
+cd tests/test-progs/hello/
+make
+``` 
+
+4. Mount hello world into the Image
+```
+sudo mount -o,loop,offset=32256 ./dist/disk/linux-parsec-2-1-m5-with-test-inputs.img /mnt
+sudo cp tests/test-progs/hello/hello_fi_alpha /mnt 
+```
+
+5. Setup test bench file
+a) Create test_hello.rcS in configs/boot/
+b) Copy these content into the file
+```
+/sbin/m5 checkpoint 1 500000
+/sbin/m5 dumpresetstats
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+echo "Running test now ..."
+./hello_alpha
+echo "Finish test :D"
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+
+/sbin/m5 exit
+```
+c) Go into configs/common/Benchmarks.py, copy the sentence after the line 69
+```
+'test_hello':  [SysConfig('test_hello.rcS', '512MB')],
+```
+
+Running Program
+-----------------------
+1. Run without any conditions
+```
+build/ALPHA/gem5.opt -b test_hello
+```
+
+2. Run in cpu detailed mode
+```
+dmtcp_launch build/ALPHA/gem5.opt --debug-flags=FaultInjection configs/example/fs.py --cpu-type=detailed --caches --l2cache -b test_hello
+```
