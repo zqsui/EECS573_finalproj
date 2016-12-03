@@ -111,7 +111,7 @@ make
 
 4. Mount hello world into the Image
 ```
-sudo mount -o,loop,offset=32256 ./dist/disk/linux-parsec-2-1-m5-with-test-inputs.img /mnt
+sudo mount -o,loop,offset=32256 ./dist/disks/linux-parsec-2-1-m5-with-test-inputs.img /mnt
 sudo cp tests/test-progs/hello/hello_fi_alpha /mnt 
 ```
 
