@@ -5,4 +5,10 @@
 
 
 ##Test Program Compilation Guide
-[MiBenchi](http://vhosts.eecs.umich.edu/mibench/)
+[MiBench](http://vhosts.eecs.umich.edu/mibench/)
+
+In MiBench, for each sub-category, run script make_and_add_to_test_bench.sh
+```
+./make_and_add_to_test_bench.sh
+```
+This will make ALPHA binaries for each test application and append them to the ALPHA linux image
