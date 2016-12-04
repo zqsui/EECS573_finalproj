@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <m5op.h>
 
 #define UNLIMIT
 #define MAXARRAY 60000 /* this number, if too large, will cause a seg. fault!! */
@@ -21,6 +22,11 @@ int compare(const void *elem1, const void *elem2)
 
 int
 main(int argc, char *argv[]) {
+
+		unsigned int id = 0;
+	fi_activate_inst(id, START);
+	
+	
   struct myStringStruct array[MAXARRAY];
   FILE *fp;
   int i,count=0;
@@ -41,5 +47,8 @@ main(int argc, char *argv[]) {
   
   for(i=0;i<count;i++)
     printf("%s\n", array[i].qstring);
+
+	fi_activate_inst(id, STOP);
+
   return 0;
 }
