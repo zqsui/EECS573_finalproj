@@ -1,6 +1,6 @@
 function [all_feat, period_feat, sim_flag_count] = read_stats(file_param)
 
-file_prefix = '/home/zhefanye/Documents/Programs/code/573/machine_learning/data/stats_';
+file_prefix = 'data/stats_';
 fid = fopen([file_prefix file_param '.txt']);
 disp(['Reading file ' file_prefix file_param '.txt'])
 

@@ -6,11 +6,12 @@ file_param = 'cpt1';
 [all_feat, period_feat, sim_flag_count] = read_stats(file_param);
 [C,ia,ic] = unique(all_feat(:,1));
 
-[count,~]=hist(ic, unique(ic));
-common_feat_idx = ic(count == sim_flag_count);
+unique_ic = unique(ic);
+[count,~]=hist(ic, unique_ic);
+common_feat_idx = unique_ic(count == sim_flag_count);
 
-common_feat_name = all_feat(common_feat_idx, 1);
-common_feat_val = all_feat(common_feat_idx, 2);
+common_feat_name = C(common_feat_idx, 1);
+% common_feat_val = C(common_feat_idx, 2);
 
 
 % file_param = 'injected';
