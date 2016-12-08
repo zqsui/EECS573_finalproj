@@ -5,7 +5,7 @@ function [param] = globalParam()
 param.vote_threshold = 3;   % major votes
 % 1: single, 2: multiple regressor based on head poses, 
 % 3: random forest only, 4: classification
-param.train_test_type = 2; %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+param.train_test_type = 1; %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 param.cluster_type = 2; % 1: hard cluster -- kmean, 2: soft cluster -- gmm
 %% K-means
 param.k_ctrs = 3; %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
