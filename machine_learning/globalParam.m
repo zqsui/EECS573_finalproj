@@ -24,7 +24,7 @@ param.test_mode = 1;
 param.head_pose = 0;
 
 %% Regressor
-param.regressor = 'rf'; %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+param.regressor = 'svm'; %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 % Post Processing
 param.use_hmm = 0;
 %% PCA
