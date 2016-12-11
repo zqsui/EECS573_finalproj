@@ -7,9 +7,10 @@
 \BOOKMARK [2][-]{subsection.3.4}{Machine Analysis}{section.3}% 7
 \BOOKMARK [3][-]{subsubsection.3.4.1}{Training and Testing}{subsection.3.4}% 8
 \BOOKMARK [1][-]{section.4}{Experiment}{}% 9
-\BOOKMARK [2][-]{subsection.4.1}{Same Input All Features}{section.4}% 10
-\BOOKMARK [2][-]{subsection.4.2}{Same Input Different Features}{section.4}% 11
-\BOOKMARK [2][-]{subsection.4.3}{Different Input All Features}{section.4}% 12
-\BOOKMARK [2][-]{subsection.4.4}{Different Input Different Features}{section.4}% 13
-\BOOKMARK [1][-]{section.5}{Discussion and Conclusion}{}% 14
-\BOOKMARK [1][-]{section.6}{References}{}% 15
+\BOOKMARK [2][-]{subsection.4.1}{Metrics}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.2}{Same Input All Features}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.3}{Same Input Different Features}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.4}{Different Input All Features}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.5}{Different Input Different Features}{section.4}% 14
+\BOOKMARK [1][-]{section.5}{Discussion and Conclusion}{}% 15
+\BOOKMARK [1][-]{section.6}{References}{}% 16

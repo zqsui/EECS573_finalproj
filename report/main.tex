@@ -40,7 +40,7 @@
 \end{abstract}
 
 \section{Introduction}
-We present 
+In this report, we present a pipeline that can inject faults into programs and analyze how injected fault can alter program outcomes. To detect transient fault has been a research topic in robust system design for years. We utilize gemFI to study how faults are going to affect programs. Our contribution is two-fold: we implemented a fault inject pipeline, and provide analysis on how to predict fault and program outcome based on a machine learning approach. Figure~\ref{fig:teaser} shows the overview of our approach.
 
 \begin{figure}[t]
 \begin{center}
@@ -64,7 +64,7 @@ We present
 \end{figure}
 
 \subsection{Pipeline}
-
+Figure~\ref{fig:pipeline} shows the pipeline.
 \begin{figure*}[t]
 \begin{center}
    \includegraphics[width=0.95\linewidth]{./figures/pipeline.png}
@@ -86,12 +86,31 @@ We present
 \end{figure*}
 
 \subsection{Machine Analysis}
+A random forest is essentially an ensemble of single decision trees, as illustrated in ~\ref{fig:rf}. It captures different models of the data, with each model a simple decision tree, and allows us to analysis the importance of different features.
 
 \subsubsection{Training and Testing}
+We randomly select $60\%$ of instances for training and $40\%$ of instances for testing. Our dataset consists of $98,000$ data instance.
 
 \section{Experiment}
 
+\subsection{Metrics}
+we use Precision-Recall (PR) curve and $F_1$ score as our evaluation criteria. More precisely, we have
+\begin{equation}
+F_{1} = 2\cdot\frac{precision \cdot recall}{precision + recall},
+\end{equation}
+where $precision = \frac{tp}{tp+fp}$, $recall = \frac{tp}{tp+fn}$, $tp$ is the number true positive samples, $fp$ is number of false positive samples, and $fn$ is the number of false negative samples. 
+
+F1 / MCC Score
+Harmonic mean of precision and recall
+Correlation coefficient between the observed and predicted binary classifications
+Confusion Matrix
+Multi-class classification Accuracy
+
+
+We design four experiment setups: 1) Experiment 1: same input data with all meaningful features, 2) Experiment 2: same sets of input data with handpicked subsets of features, 3) experiment 3: different sets of input data with all meaningful features, and 4) experiment 4: different sets of input data with handpicked subsets of features.
+
 \subsection{Same Input All Features}
+(same input all features SIAF)
 
 \begin{figure}[t]
 \begin{center}
@@ -109,6 +128,7 @@ We present
 \label{fig:siaf-multi}
 \end{figure}
 
+The random forest algorithm output the importance score of each feature based on its discriminative power. The importance feature ranking is depicted in Figure~\ref{fig:feat-same}.
 \begin{figure}[t]
 \begin{center}
    \includegraphics[width=0.95\linewidth]{./figures/feat_same.png}
@@ -118,6 +138,7 @@ We present
 \end{figure}
 
 \subsection{Same Input Different Features}
+(same input handpicked features SIHF)
 
 \begin{figure}[t]
 \begin{center}
@@ -128,6 +149,7 @@ We present
 \end{figure}
 
 \subsection{Different Input All Features}
+(different input all features DIAF)
 
 \begin{figure}[t]
 \begin{center}
@@ -154,6 +176,7 @@ We present
 \end{figure}
 
 \subsection{Different Input Different Features}
+Different Input Handpicked Features DIHF
 
 \begin{figure}[t]
 \begin{center}
@@ -165,7 +188,8 @@ We present
 
 
 \section{Discussion and Conclusion}
-\cite{lamport94}
+In the same input scenario, a few features alone can determine the results in same input condition. For same input the most important features are mainly describing the execution length. For d different input scenario: the features such as, “type of functional units issued”, “fetch instructions” and “cache read and write”, play important role in the prediction. Overall features based on “L2 cache” events perform higher than other set of hand-picked features. However, when all the features are used, the performance of the random forest algorithm is high. We extract meaningful fault signatures from the architectural events that can be used to predict transient fault occurrence.
+
 
 %%%%%%% -- PAPER CONTENT ENDS -- %%%%%%%%
 
