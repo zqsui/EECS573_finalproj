@@ -1,5 +1,17 @@
 \begin{thebibliography}{1}
 
+\bibitem{parasyris2014gemfi}
+K.~Parasyris, G.~Tziantzoulis, C.~D. Antonopoulos, and N.~Bellas, ``Gemfi: A
+  fault injection tool for studying the behavior of applications on unreliable
+  substrates,'' in {\em 2014 44th Annual IEEE/IFIP International Conference on
+  Dependable Systems and Networks}, pp.~622--629, IEEE, 2014.
+
+\bibitem{guthaus2001mibench}
+M.~R. Guthaus, J.~S. Ringenberg, D.~Ernst, T.~M. Austin, T.~Mudge, and R.~B.
+  Brown, ``Mibench: A free, commercially representative embedded benchmark
+  suite,'' in {\em Workload Characterization, 2001. WWC-4. 2001 IEEE
+  International Workshop on}, pp.~3--14, IEEE, 2001.
+
 \bibitem{breiman2001random}
 L.~Breiman, ``Random forests,'' {\em Machine learning}, vol.~45, no.~1,
   pp.~5--32, 2001.

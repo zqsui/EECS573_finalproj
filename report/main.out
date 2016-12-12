@@ -3,14 +3,18 @@
 \BOOKMARK [1][-]{section.3}{Approach}{}% 3
 \BOOKMARK [2][-]{subsection.3.1}{Pipeline}{section.3}% 4
 \BOOKMARK [2][-]{subsection.3.2}{Fault Injection}{section.3}% 5
-\BOOKMARK [2][-]{subsection.3.3}{Feature Extraction}{section.3}% 6
-\BOOKMARK [2][-]{subsection.3.4}{Machine Analysis}{section.3}% 7
-\BOOKMARK [3][-]{subsubsection.3.4.1}{Training and Testing}{subsection.3.4}% 8
-\BOOKMARK [1][-]{section.4}{Experiment}{}% 9
-\BOOKMARK [2][-]{subsection.4.1}{Metrics}{section.4}% 10
-\BOOKMARK [2][-]{subsection.4.2}{Same Input All Features}{section.4}% 11
-\BOOKMARK [2][-]{subsection.4.3}{Same Input Different Features}{section.4}% 12
-\BOOKMARK [2][-]{subsection.4.4}{Different Input All Features}{section.4}% 13
-\BOOKMARK [2][-]{subsection.4.5}{Different Input Different Features}{section.4}% 14
-\BOOKMARK [1][-]{section.5}{Discussion and Conclusion}{}% 15
-\BOOKMARK [1][-]{section.6}{References}{}% 16
+\BOOKMARK [2][-]{subsection.3.3}{Test Bench}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.4}{Feature Extraction}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.5}{Machine Analysis}{section.3}% 8
+\BOOKMARK [3][-]{subsubsection.3.5.1}{Training and Testing}{subsection.3.5}% 9
+\BOOKMARK [1][-]{section.4}{Experiment}{}% 10
+\BOOKMARK [2][-]{subsection.4.1}{Metrics}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.2}{Experiment Setups}{section.4}% 12
+\BOOKMARK [1][-]{section.5}{Result}{}% 13
+\BOOKMARK [2][-]{subsection.5.1}{Same Input All Features}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.2}{Same Input Different Features}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.3}{Different Input All Features}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.4}{Different Input Different Features}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.5}{Cross Application Predication}{section.5}% 18
+\BOOKMARK [1][-]{section.6}{Discussion and Conclusion}{}% 19
+\BOOKMARK [1][-]{section.7}{References}{}% 20
