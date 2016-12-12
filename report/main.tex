@@ -53,15 +53,7 @@ In this report, we present a pipeline that can inject faults into programs and a
 \section{Related Work}
 
 \section{Approach}
-We present
-
-\begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.95\linewidth]{./figures/rf.png}
-\end{center}
-   \caption{}
-\label{fig:rf}
-\end{figure}
+In this section, we present our implementation for injecting faults, as well as analysis for predicting program outcome and fault types.
 
 \subsection{Pipeline}
 Figure~\ref{fig:pipeline} shows the pipeline.
@@ -86,7 +78,15 @@ Figure~\ref{fig:pipeline} shows the pipeline.
 \end{figure*}
 
 \subsection{Machine Analysis}
-A random forest is essentially an ensemble of single decision trees, as illustrated in ~\ref{fig:rf}. It captures different models of the data, with each model a simple decision tree, and allows us to analysis the importance of different features.
+We use the random forest algorithm to predict program outcome and fault type. A random forest is essentially an ensemble of single decision trees, as illustrated in ~\ref{fig:rf} \cite{breiman2001random}. It captures different models of the data, with each decision tree representing a model, and allows us to analyze the importance of different features. 
+
+\begin{figure}[t]
+\begin{center}
+   \includegraphics[width=0.95\linewidth]{./figures/rf.png}
+\end{center}
+   \caption{}
+\label{fig:rf}
+\end{figure}
 
 \subsubsection{Training and Testing}
 We randomly select $60\%$ of instances for training and $40\%$ of instances for testing. Our dataset consists of $98,000$ data instance.
@@ -98,14 +98,7 @@ we use Precision-Recall (PR) curve and $F_1$ score as our evaluation criteria. M
 \begin{equation}
 F_{1} = 2\cdot\frac{precision \cdot recall}{precision + recall},
 \end{equation}
-where $precision = \frac{tp}{tp+fp}$, $recall = \frac{tp}{tp+fn}$, $tp$ is the number true positive samples, $fp$ is number of false positive samples, and $fn$ is the number of false negative samples. 
-
-F1 / MCC Score
-Harmonic mean of precision and recall
-Correlation coefficient between the observed and predicted binary classifications
-Confusion Matrix
-Multi-class classification Accuracy
-
+where $precision = \frac{tp}{tp+fp}$, $recall = \frac{tp}{tp+fn}$, $tp$ is the number true positive samples, $fp$ is number of false positive samples, and $fn$ is the number of false negative samples. For multi-class classification, we use confusion matrix to describe the performance of our classifier.
 
 We design four experiment setups: 1) Experiment 1: same input data with all meaningful features, 2) Experiment 2: same sets of input data with handpicked subsets of features, 3) experiment 3: different sets of input data with all meaningful features, and 4) experiment 4: different sets of input data with handpicked subsets of features.
 
