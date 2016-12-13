@@ -128,7 +128,7 @@
                                 % marginal note
 
                                 % Top of page:
-\topmargin 1.5pc                % Nominal distance from top of page to top of
+\topmargin 3.5pc                % Nominal distance from top of page to top of
                                 % box containing running head.
 \advance\topmargin by -1in      % Correct for LaTeX gratuitousness
 \headheight 0pt                 % Height of box containing running head.
