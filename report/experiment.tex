@@ -58,52 +58,46 @@ Figure~\ref{fig:siaf-multi} shows the confusion matrix of \emph{SIAF}. A perfect
 \end{figure}
 
 \subsection{Same Input Different Features}
-(same input handpicked features SIHF)
+In order to examine how different sets of features may affect the performance, we further compare the PR curves of different feature sets. The broken line in Figure~\ref{fig:sidf} represents the result of using all features, which clearly outperforms all other handpicked feature. Among handpicked features, the classifier trained using $l2$ cache features performs slightly better than the rest, whereas the classifier trained using decode features performs the worst.
 
 \begin{figure}[t]
 \begin{center}
    \includegraphics[width=0.95\linewidth]{./figures/sidf.png}
 \end{center}
-   \caption{}
+   \caption{Comparison among classifiers trained on different sets of features using the same input data.}
 \label{fig:sidf}
 \end{figure}
 
 \subsection{Different Input All Features}
-(different input all features DIAF)
+All previous results are based on the same input data, which may not be convincing in the real-world situation. Thus, we give \emph{qsort} different input and retrain the random forest classifier.
 
 \begin{figure}[t]
 \begin{center}
-   \includegraphics[width=0.95\linewidth]{./figures/diaf_multi.png}
+   \includegraphics[width=0.8\linewidth]{./figures/disf.png}
+\end{center}
+   \caption{Performance of the the random forest classifier using different input data with all features}
+\label{fig:diaf}
+\end{figure}
+
+Figure~\ref{fig:diaf} shows the binary classification result for using different input data with all features. 
+
+\begin{figure}[t]
+\begin{center}
+   \includegraphics[width=0.8\linewidth]{./figures/diaf_multi.png}
 \end{center}
    \caption{}
 \label{fig:diaf-multi}
 \end{figure}
 
-\begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.95\linewidth]{./figures/disf.png}
-\end{center}
-   \caption{}
-\label{fig:disf}
-\end{figure}
-
-\begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.95\linewidth]{./figures/feat_diff.png}
-\end{center}
-   \caption{}
-\label{fig:feat-diff}
-\end{figure}
 
 \subsection{Different Input Different Features}
 Different Input Handpicked Features DIHF
 
 \begin{figure}[t]
 \begin{center}
-   \includegraphics[width=0.95\linewidth]{./figures/didf.png}
+   \includegraphics[width=0.8\linewidth]{./figures/didf.png}
 \end{center}
    \caption{}
 \label{fig:didf}
 \end{figure}
 
-\subsection{Cross Application Predication}
