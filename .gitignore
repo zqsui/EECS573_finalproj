@@ -1,0 +1,3 @@
+training_data_generation/qsort/input_fault*
+*.dat
+training_data_generation/*.rcS
