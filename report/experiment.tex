@@ -1,44 +1,60 @@
 \section{Experiment}
+In this section we describe our procedure for testing the efficacy of our feature extraction pipeline and machine learning methods. First we introduce our chosen test bench and metrics, followed by experiment setups.
+
 \subsection{Test Bench}
-We use MiBench \cite{guthaus2001mibench} as our test bench for injecting faults and evaluating our system. MiBench is a representative embedded benchmark. We choose MiBench because of its compact program size and versatile program characteristics. We choose qsort as our test program.
+We use MiBench \cite{guthaus2001mibench} as our test bench for fault injection. MiBench is a representative embedded benchmark that offers compact program sizes and versatile program characteristics. Specifically, qsort is chosen as our test program.
 
 \subsection{Metrics}
-we use Precision-Recall (PR) curve and $F_1$ score as our evaluation criteria. More precisely, we have
+To evaluate the performance of our machine learning method, we use precision-recall (PR) curve and $F_1$ score as our criteria due to unbalanced positive and negative samples. More precisely, we have
 \begin{equation}
 F_{1} = 2\cdot\frac{precision \cdot recall}{precision + recall},
 \end{equation}
-where $precision = \frac{tp}{tp+fp}$, $recall = \frac{tp}{tp+fn}$, $tp$ is the number true positive samples, $fp$ is number of false positive samples, and $fn$ is the number of false negative samples. For multi-class classification, we use confusion matrix to describe the performance of our classifier.
+where $precision = \frac{tp}{tp+fp}$, $recall = \frac{tp}{tp+fn}$, $tp$ is the number true positive samples, $fp$ is number of false positive samples, and $fn$ is the number of false negative samples. Essentially, $F_1$ score is the harmonic mean of precision and recall. PR curve can reflect the performance of the classifier well since it takes the number of false positives into account, which is prevalent in our testing instances. For identifying fault types, which is a multi-class classification problem, we use confusion matrix to describe the performance of our classifier. Each column of a confusion matrix is the samples in a predicted category whereas each row is the samples in ground truth \cite{powers2011evaluation}.
 
-\subsection{Experiment Setups}
-Here are our four experiment setups: 1) same input data with all features, 2) same input data with handpicked subsets of features, 3) different input data with all meaningful features, and 4) different input data with handpicked subsets of features.
+\subsection{Experiment Setup}
+We present four types of experiment setup: 1) same input data (for qsort) with all features, 2) same input data with handpicked subsets of features, 3) different input data with all meaningful features, and 4) different input data with handpicked subsets of features. We would like to examine how different input and sets of feature  may affect the performance of our pipeline in order to explore the optimal setup for detecting faults.
 
 \section{Result}
-\subsection{Same Input All Features}
-(same input all features SIAF)
+In this section we report results of all four types of experiment setup. For PR curves, they represent the performance of binary classification (whether the program output is correct) given predictions from random forest. For confusion matrices, they represents the how well our classifier can identify different types of faults.
 
-\begin{figure}[t]
+\subsection{Same Input All Features (SIAF)}
+Figure~\ref{fig:siaf} shows the performance of our binary classifier given all features from stats file and \emph{qsort} uses the same input data. Our approach works well in this task since the $F_1$ score is 0.9688 (max $F_1$ value: 1) and the shape of PR curve is almost perfect (a curve started at $(0,1)$, reached $(1,1)$, and stopped at $(1,0)$). 
+
+\begin{figure}[ht]
 \begin{center}
-   \includegraphics[width=0.95\linewidth]{./figures/siaf.png}
+   \includegraphics[width=0.8\linewidth]{./figures/siaf.png}
 \end{center}
-   \caption{}
+   \caption{Performance of the the random forest classifier using same input with all features}
 \label{fig:siaf}
 \end{figure}
 
-\begin{figure}[t]
+We further examine the feature importance ranking extracted from the random forest, as illustrated in Figure~\ref{fig:feat-same}. The y-axis represents information gain and each bar along the x-axis represent one feature dimension. Several features in Figure~\ref{fig:feat-same} shows high discriminative power, which entails that a handful features are able to predict the outcome of the program. The top-3 discriminative features are 
+\begin{itemize}
+\item $sim\_insts$: \\
+Number of instructions simulated
+\item $system.cpu.fetch.insts$: \\
+Number of instructions fetch has processed
+\item $system.cpu.dcache.tags.occ\_percent::cpu.data$: \\
+Average percentage of cache occupancy
+\end{itemize}
+
+\begin{figure}[ht]
 \begin{center}
-   \includegraphics[width=0.95\linewidth]{./figures/siaf_multi.png}
+   \includegraphics[width=0.8\linewidth]{./figures/feat_same.png}
 \end{center}
-   \caption{}
-\label{fig:siaf-multi}
+   \caption{Feature importance ranking of SIAF}
+\label{fig:feat-same}
 \end{figure}
 
-The random forest algorithm output the importance score of each feature based on its discriminative power. The importance feature ranking is depicted in Figure~\ref{fig:feat-same}.
-\begin{figure}[t]
+We further extend the capability of our classifier to predict the fault types instead of only determining program outcome.
+Figure~\ref{fig:siaf-multi} shows the confusion matrix of \emph{SIAF}. A perfect confusion matrix would be light yellow color appears in the diagonal entries and the rest is dark blue. According to Figure~\ref{fig:siaf-multi}, our classifier can recognize correct program outcome, \emph{general fetch} fault and \emph{load/store} fault quite well. However, it doesn't perform well on \emph{execution} and \emph{opcode} fault. We suspect that this is due to the variances of those two types of faults, and we may need more training data of those two types of faults to train the classifier.
+
+\begin{figure}[ht]
 \begin{center}
-   \includegraphics[width=0.95\linewidth]{./figures/feat_same.png}
+   \includegraphics[width=0.8\linewidth]{./figures/siaf_multi.png}
 \end{center}
-   \caption{}
-\label{fig:feat-same}
+   \caption{Fault type classification using SIAF.}
+\label{fig:siaf-multi}
 \end{figure}
 
 \subsection{Same Input Different Features}
