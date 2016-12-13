@@ -53,4 +53,7 @@ GemFI generates a \emph{stats} file which contains the statistics for each perio
 \subsubsection{Labeling}
 There are three kinds of output from the test. The first kind of faults is masked by the hardware and the result is correct. This happens a lot as the operation of flipping the bit is very likely to be masked.The second kind of faults is that the test program encounters the segmentation fault in the middle of the execution. The last kind is that the execution of the program exits normally however the output is not correct. From our trivial observation, among all the faulty execution of the program, the second kind is the one which is most commonly. We will label the first condition as 0 which is the correct output and label the latter two conditions as 1 in binary classification and 1, 2, 3, 4 corresponds to different types of fault in multi-class classification.
 
+\subsection{Checkpoint Restoring}
+We also employ checkpoint mechanism to save the simulation time of a test program. For simulating a test program, GemFI first loads the entire linux system in detailed mode and then executes the program. This loading step takes about 5 minutes and usually takes 90\% of the total simulation time. So by creating a checkpoint after the system has been loaded, we can directly simulate the test program next time by restoring this checkpoint. This saves us a lot of time when generating training data by simulating the test programs. 
+
 \input{ml_analysis}
