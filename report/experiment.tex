@@ -68,36 +68,26 @@ In order to examine how different sets of features may affect the performance, w
 \label{fig:sidf}
 \end{figure}
 
-\subsection{Different Input All Features}
+\subsection{Different Input}
 All previous results are based on the same input data, which may not be convincing in the real-world situation. Thus, we give \emph{qsort} different input and retrain the random forest classifier.
-
-\begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.8\linewidth]{./figures/disf.png}
-\end{center}
-   \caption{Performance of the the random forest classifier using different input data with all features}
-\label{fig:diaf}
-\end{figure}
-
-Figure~\ref{fig:diaf} shows the binary classification result for using different input data with all features. 
-
-\begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.8\linewidth]{./figures/diaf_multi.png}
-\end{center}
-   \caption{}
-\label{fig:diaf-multi}
-\end{figure}
-
-
-\subsection{Different Input Different Features}
-Different Input Handpicked Features DIHF
 
 \begin{figure}[t]
 \begin{center}
    \includegraphics[width=0.8\linewidth]{./figures/didf.png}
 \end{center}
-   \caption{}
+   \caption{Fault type classification using different input data.}
 \label{fig:didf}
 \end{figure}
+
+Figure~\ref{fig:didf} shows the binary classification results using different input data. The broken line represents the classifier with all features, which outperform the all other hand-picked features. This, again, demonstrates that hand-picked features may not outperform the classifier that uses all features.
+
+\begin{figure}[t]
+\begin{center}
+   \includegraphics[width=0.8\linewidth]{./figures/diaf_multi.png}
+\end{center}
+   \caption{Comparison among classifiers trained on different sets of features using the different input data.}
+\label{fig:diaf-multi}
+\end{figure}
+
+Figure~\ref{fig:didf} shows the confusion matrix of fault prediction using different input data. Comparing to Figure \ref{fig:siaf-multi}, its performance is much worse. One reason is that different input data bring significant variance into the training data, which would require more training data to sufficiently train a classifier. Thus, given the same amount of training data, the classifier with different input data would unequivocally underperform the one with the same input data.
 
