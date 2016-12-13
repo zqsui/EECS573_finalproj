@@ -1,0 +1,8 @@
+\section{Observation}
+In the same input scenario (i.e. the application was provided with same input to produce the same output), a few features alone were able to determine the faulty conditions. These discriminative features mainly describe the length of the execution such as "number of sim instructions executed" and "number of instructions in fetch stage". This shows that any abnormality in length of execution could be a result of a fault occurrence. 
+
+In the different input scenario (i.e the application was provide with different input every time to collect the training data), in addition to features that describe the execution lengths, few features such as "cache read, write hits" and "type of functional units issues" help in predicting the faulty conditions. Since the data is different these additional features are also required to predict the faults. 
+
+In the handpicked feature experiments, we found that the feature set describing the "L2 cache" events alone can predict the faulty conditions better than other sets of features. However, when all the features are used, the accuracy of the fault prediction is higher. This observation is evident both in the same input scenario as well as different input scenario. 
+
+In our attempts to predict the class of the faults in addition to the faultiness, we observed that for same input scenario, the accuracy of the multi-class classifier is higher compared to the different input scenario. This experimentation is interesting and motivates us to probe further in the future to extract features for labelling the specific faults.
