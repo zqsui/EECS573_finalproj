@@ -20,7 +20,7 @@ Our feature extraction and labeling module will extracts standardized features f
 \begin{center}
    \includegraphics[width=0.95\linewidth]{./figures/pipeline.png}
 \end{center}
-   \caption{\footnotesize General pipeline of our work.}
+   \caption{\footnotesize General pipeline of our work. GemFi simulator restores from the checkpoint which saves the warm up stage of the system and takes in test program, input data of the test program and the fault injection script. It then simulates the execution of the program and generates the raw features. Our feature extraction and labeling module will then extract common feature and label each feature vector for binary and multi-class classification. The machine learning algorithms learn models from the features and also output useful features.}
 \label{fig:pipeline}
 \end{figure*}
 
