@@ -13,7 +13,7 @@ param.k_ctrs = 3; %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 param.display_session_result = 0;
 param.display_cluster_result = 0;
 param.is_save_figure = 0;
-param.color = 'rgbmkcy';
+param.color = 'rgbymck';
 % number of test samples
 param.num_test = 10;
 % debug: -1 0 1
@@ -24,7 +24,7 @@ param.test_mode = 1;
 param.head_pose = 0;
 
 %% Regressor
-param.regressor = 'svm'; %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+param.regressor = 'rf'; %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 % Post Processing
 param.use_hmm = 0;
 %% PCA

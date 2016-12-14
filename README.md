@@ -29,3 +29,5 @@ dmtcp_launch build/ALPHA/gem5.opt -re -d ./checkpoints/qsort_small --debug-flags
 ```
 dmtcp_launch build/ALPHA/gem5.opt -re -d ./fi_output/qsort_small_f1 --debug-flags=FaultInjection configs/example/fs.py --cpu-type=detailed --caches --l2cache -b qsort_small1 --checkpoint-restore 1 --checkpoint-dir ./checkpoints/qsort_small 
 ```
+## Run our machine learning analysis module
+See README.md file in machine_learning folder
